@@ -1,38 +1,22 @@
-ii = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December"
-]
+n = input("Fraction: ")  # get input of user
+
+
+def yyy(n):
+    while True:
+        try:
+            x, y = n.split("/") # convert it
+            if 0 <= int(x)/int(y) <= 0.1: # chack about E
+                 return("E")
+            elif 0.9 <= int(x)/int(y) <= 1: # chack about F
+                 return ("F")
+            elif 0.1 < int(x)/int(y) < 0.9:
+                 return (str(round(int(x)/int(y)*100)) + "%") # return the answer
+        except (ValueError, ZeroDivisionError):
+            n = input("Fraction: ") # again
 
 
 
+n = yyy(n)
 
 
-
-
-
-while True:
-    n = input("Date: ") # get input of user
-    try:
-        if "/" in n: # check about "/" (number of date)
-            a, b, c = n.split("/")
-        elif "," in n: # check abou ", " (word of date)
-            d, c = n.split(", ")
-            a, b = d.split(" ")
-            a = (ii.index(a)) + 1
-        if int(a) > 12 or int(b) > 31: # chack about days and months
-            raise ValueError
-    except(AttributeError, ValueError, NameError, KeyError):
-        pass
-    else:
-        print(f"{int(c)}-{int(a):02}-{int(b):02}") # print it
-        break
+print(n)  # print it
